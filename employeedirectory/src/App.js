@@ -1,8 +1,9 @@
-import React, {useState, useMemo, useEffect} from "react";
+import React, {useState, useEffect} from "react";
 import Header from "./components/Header";
 import Search from "./components/Search";
 import Table from "./components/Table";
 import axios from "axios"
+
 
 function App() {
 
@@ -39,7 +40,6 @@ function App() {
     return (
         <div>
         <Header />
-        <Search />
         <Table />
 
 
