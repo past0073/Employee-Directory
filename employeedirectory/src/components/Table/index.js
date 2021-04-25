@@ -7,7 +7,7 @@ import API from "../../utils/API"
 
 class Table extends Component {
     state = {
-        result: {},
+        result: [],
         search: ""
     }
 
