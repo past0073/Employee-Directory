@@ -15,8 +15,8 @@ class Table extends Component {
         this.searchEmployees();
       }
 
-    searchEmployees = (query) => {
-    API.search(query)
+    searchEmployees = () => {
+    API.search()
         .then(res => this.setState({ result: res.data.results }))
         .catch(err => console.log(err));
     };
@@ -41,6 +41,7 @@ class Table extends Component {
             <Search 
                 value={this.state.search}
                 handleInputChange={this.handleInputChange}
+                handleFormSubmit={this.handleFormSubmit}
             />
         <table className="table table-striped">
             <thead>
