@@ -32,6 +32,6 @@ function Employee(props) {
         ))}
         </tbody>
     );
-  }
+}
 
 export default Employee;

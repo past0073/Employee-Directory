@@ -34,6 +34,7 @@ class Table extends Component {
     handleFormSubmit = event => {
     event.preventDefault();
 
+    //Toggle ascending/decending sort
     if (`${this.state.order}` === "" || `${this.state.order}` === "descending") {
         this.setState({
             order: "ascending"
@@ -80,33 +81,31 @@ class Table extends Component {
                 value={this.state.search}
                 handleInputChange={this.handleInputChange}
             />
-        <table className="table table-striped">
-            <thead>
-                <tr>
-                <th scope="col">Image</th>
-                <th
-                className="arrow"
-                data-order={this.state.order}
-                onClick={this.handleFormSubmit}
-                scope="col">
-                Name
-                </th>
-                <th scope="col">Phone</th>
-                <th scope="col">Email</th>
-                <th scope="col">DOB</th>
-                </tr>
-            </thead>
-                {!this.state.search ? (
-                    <Employee 
-                    results={this.state.result} 
-                    />
-                ) : (
-                    <SearchResults 
-                    results={this.state.result}
-                    value={this.state.search}
-                    />
-                )}
-        </table>
+            <table className="table table-striped">
+                <thead>
+                    <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col"
+                    className="arrow"
+                    data-order={this.state.order}
+                    onClick={this.handleFormSubmit}>
+                    Name</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">DOB</th>
+                    </tr>
+                </thead>
+                    {!this.state.search ? (
+                        <Employee 
+                        results={this.state.result} 
+                        />
+                    ) : (
+                        <SearchResults 
+                        results={this.state.result}
+                        value={this.state.search}
+                        />
+                    )}
+            </table>
         </div>
         );
     }
