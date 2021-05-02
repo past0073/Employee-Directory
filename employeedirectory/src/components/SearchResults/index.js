@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import chop from "../chop/chop"
 
 function SearchResults(props) {
     return (
@@ -12,7 +13,10 @@ function SearchResults(props) {
         }).map(results => (
             <tr key={results.login.uuid}>
                 <td data-th="image">
-                    <img src={results.picture.thumbnail} alt={`${results.name.first} ${results.name.last}`}></img>
+                    <img 
+                    src={results.picture.thumbnail} 
+                    alt={`${results.name.first} ${results.name.last}`}>
+                    </img>
                 </td>
                 <td data-th="name">
                     {results.name.first} {results.name.last}
@@ -21,10 +25,12 @@ function SearchResults(props) {
                     {results.cell}
                 </td>
                 <td data-th="email">
-                        {results.email}
+                    <a href={`mailto:${results.email}`} target="_blank" rel="noreferrer">
+                                {results.email}
+                    </a>
                 </td>
                 <td data-th="DOB">
-                    {results.dob.date}
+                    {chop(results.dob.date)}
                 </td>
             </tr>
         ))

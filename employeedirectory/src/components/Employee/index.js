@@ -1,4 +1,5 @@
 import React from "react";
+import chop from "../chop/chop"
 
 function Employee(props) {
 
@@ -25,7 +26,7 @@ function Employee(props) {
                    </a>
                 </td>
                 <td data-th="DOB">
-                    {result.dob.date}
+                    {chop(result.dob.date)}
                 </td>
             </tr>
         ))}
