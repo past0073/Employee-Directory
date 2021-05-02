@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./style.css";
 import "../SearchResults";
 import Search from "../Search";
+import Employee from "../Employee";
 import SearchResults from "../SearchResults";
 import API from "../../utils/API"
 
@@ -96,11 +97,16 @@ class Table extends Component {
                 <th scope="col">DOB</th>
                 </tr>
             </thead>
-                <SearchResults 
-                results={this.state.result}
-                value={this.state.search}
-                />
-
+                {!this.state.search ? (
+                    <Employee 
+                    results={this.state.result} 
+                    />
+                ) : (
+                    <SearchResults 
+                    results={this.state.result}
+                    value={this.state.search}
+                    />
+                )}
         </table>
         </div>
         );
