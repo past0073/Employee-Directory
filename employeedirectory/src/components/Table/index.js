@@ -8,7 +8,8 @@ import API from "../../utils/API"
 class Table extends Component {
     state = {
         result: [],
-        search: ""
+        search: "",
+        order: ""
     }
 
     componentDidMount() {
@@ -32,7 +33,44 @@ class Table extends Component {
     // When the form is submitted, search the OMDB API for the value of `this.state.search`
     handleFormSubmit = event => {
     event.preventDefault();
-    this.searchEmployees(this.state.search);
+
+    if (`${this.state.order}` === "" || `${this.state.order}` === "descending") {
+        this.setState({
+            order: "ascending"
+        })
+
+        let empSort = this.state.result.sort((a, b) => {
+            let aName = a.name.first;
+            let bName = b.name.first;
+            if (aName < bName) {
+                return -1
+            }
+            return 0;
+        })
+        this.setState({
+            result: empSort
+        })
+    }
+
+    else if (`${this.state.order}` === "ascending") {
+        this.setState({
+            order: "descending"
+        })
+
+        let empSort = this.state.result.sort((a, b) => {
+            let aName = a.name.last;
+            let bName = b.name.last;
+
+            if (aName > bName) {
+                return -1
+            }
+            return 0;
+        })
+
+        this.setState({
+            result: empSort
+        })
+    }
     };
 
     render() {
@@ -41,13 +79,18 @@ class Table extends Component {
             <Search 
                 value={this.state.search}
                 handleInputChange={this.handleInputChange}
-                handleFormSubmit={this.handleFormSubmit}
             />
         <table className="table table-striped">
             <thead>
                 <tr>
                 <th scope="col">Image</th>
-                <th scope="col">Name</th>
+                <th
+                className="arrow"
+                data-order={this.state.order}
+                onClick={this.handleFormSubmit}
+                scope="col">
+                Name
+                </th>
                 <th scope="col">Phone</th>
                 <th scope="col">Email</th>
                 <th scope="col">DOB</th>
