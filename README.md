@@ -25,7 +25,7 @@ The following technologies were used in creating this application:
 * JavaScript
 * React
 * React-DOM
-* Random User Generator API
+* Random User API
 * Bootstrap
 * Axios
 ## Usage
