@@ -5,7 +5,7 @@
 
 A React application that filters and sorts an employee directory. Users can begin typing the name of the employee they are seeking, and the page will dynamically update based on their input. Users also have the abilty to sort the employees alphabetically.
 
-Link to the deployed application: https://budget-trapper-keeper.herokuapp.com/
+Link to the deployed application: 
 
 ## Table of Contents 
 * [Installation](#installation)
